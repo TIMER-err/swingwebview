@@ -1,152 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
-                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
-    <groupId>ca.weblite</groupId>
-    <artifactId>webview</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <groupId>io.github.timer-err</groupId>
+    <artifactId>swingwebview</artifactId>
+    <version>1.4.0-qplayer.1</version>
     <packaging>jar</packaging>
-
-    <name>WebView</name>
-    <description>Java port of Serge Zaitsev's webview, embeddable in Swing applications.</description>
-    <url>https://github.com/webliteca/swingwebview</url>
-
+    <name>Swing WebView — QPlayer fork</name>
+    <description>MIT-licensed Swing system WebView with native HttpOnly cookie export.</description>
+    <url>https://github.com/TIMER-err/swingwebview</url>
     <licenses>
         <license>
             <name>MIT License</name>
             <url>https://opensource.org/licenses/MIT</url>
         </license>
     </licenses>
-
-    <developers>
-        <developer>
-            <name>Steve Hannah</name>
-            <url>https://sjhannah.com</url>
-        </developer>
-    </developers>
-
     <scm>
-        <connection>scm:git:git://github.com/webliteca/swingwebview.git</connection>
-        <developerConnection>scm:git:ssh://github.com:webliteca/swingwebview.git</developerConnection>
-        <url>https://github.com/webliteca/swingwebview</url>
+        <connection>scm:git:https://github.com/TIMER-err/swingwebview.git</connection>
+        <url>https://github.com/TIMER-err/swingwebview</url>
+        <tag>49aba3f497da46ba7f2390d049a513fa3e09a68a</tag>
     </scm>
-
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-    </properties>
-
-    <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
-
-    <build>
-        <sourceDirectory>src</sourceDirectory>
-        <testSourceDirectory>test</testSourceDirectory>
-        <resources>
-            <!--
-                Native libs are not checked into git. They are produced
-                by build-{linux,mac,windows}.sh (locally) or by the
-                per-platform CI matrix (.github/workflows/*.yml) and
-                deposited under natives/<arch>/. Maven copies them into
-                target/classes/<arch>/ so they land at the jar root,
-                where NativeLibraryUtil.getPlatformLibraryPath expects
-                to find them at runtime.
-            -->
-            <resource>
-                <directory>natives</directory>
-                <includes>
-                    <include>linux_64/**</include>
-                    <include>linux_arm64/**</include>
-                    <include>osx_64/**</include>
-                    <include>osx_arm64/**</include>
-                    <include>windows_64/**</include>
-                    <include>windows_arm64/**</include>
-                </includes>
-            </resource>
-        </resources>
-
-        <plugins>
-            <plugin>
-                <groupId>org.sonatype.central</groupId>
-                <artifactId>central-publishing-maven-plugin</artifactId>
-                <version>0.7.0</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <publishingServerId>central</publishingServerId>
-                    <autoPublish>true</autoPublish>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
-
-    <profiles>
-        <profile>
-            <id>sign-artifacts</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-source-plugin</artifactId>
-                        <version>3.3.0</version>
-                        <executions>
-                            <execution>
-                                <id>attach-sources</id>
-                                <goals>
-                                    <goal>jar-no-fork</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-javadoc-plugin</artifactId>
-                        <version>3.6.3</version>
-                        <executions>
-                            <execution>
-                                <id>attach-javadocs</id>
-                                <goals>
-                                    <goal>jar</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                        <configuration>
-                            <doclint>none</doclint>
-                            <failOnError>false</failOnError>
-                            <failOnWarnings>false</failOnWarnings>
-                            <quiet>true</quiet>
-                        </configuration>
-                    </plugin>
-
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-gpg-plugin</artifactId>
-                        <version>3.0.1</version>
-                        <executions>
-                            <execution>
-                                <id>sign-artifacts</id>
-                                <phase>verify</phase>
-                                <goals>
-                                    <goal>sign</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                        <configuration>
-                            <passphrase>${gpg.passphrase}</passphrase>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
 </project>
