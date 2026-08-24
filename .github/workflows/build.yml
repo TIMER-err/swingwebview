@@ -1,3 +1,5 @@
+# The QPlayer fork runs this matrix as its portability gate before publishing
+# a pinned browser dependency.
 name: Build cross-platform jar
 
 on:
