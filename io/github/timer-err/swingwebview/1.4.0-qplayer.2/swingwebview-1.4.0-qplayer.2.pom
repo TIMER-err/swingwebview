@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>io.github.timer-err</groupId>
+    <artifactId>swingwebview</artifactId>
+    <version>1.4.0-qplayer.2</version>
+    <packaging>jar</packaging>
+    <name>Swing WebView — QPlayer fork</name>
+    <description>MIT-licensed Swing system WebView with native HttpOnly cookie export and writable Windows WebView2 user data.</description>
+    <url>https://github.com/TIMER-err/swingwebview</url>
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://opensource.org/licenses/MIT</url>
+        </license>
+    </licenses>
+    <scm>
+        <connection>scm:git:https://github.com/TIMER-err/swingwebview.git</connection>
+        <url>https://github.com/TIMER-err/swingwebview</url>
+        <tag>cffe3f8a70a99c7b005f5af09c68dca872497ef6</tag>
+    </scm>
+</project>
